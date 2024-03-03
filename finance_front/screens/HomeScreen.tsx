@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const EntryDeleteScreen = () => {
+const HomeScreen = () => {
     return (
         <View>
-            <Text>Welcome to the EntryListScreen!</Text>
+            <Text>Welcome to the Home Screen!</Text>
         </View>
     );
 };
 
-export default EntryDeleteScreen;
+export default HomeScreen;
