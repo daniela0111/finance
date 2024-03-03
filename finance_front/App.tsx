@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import EntryListScreen from './screens/EntryListScreen';
 import EntryEditScreen from './screens/EntryEditScreen';
 import EntryDeleteScreen from './screens/EntryDeleteScreen';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 export type RootStackParamList = {
   EntryList: undefined;
@@ -25,41 +26,33 @@ const EntryStackNavigator = () => {
   )
 }
 
+const Tab = createBottomTabNavigator();
 
-function HomeScreen() {
+export default function App() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
-    </View>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen name="Home" component={EntryStackNavigator} />
+          <Tab.Screen name="Settings" component={Categories} />
+      </Tab.Navigator>
+    {/* <View style={styles.container}>
+      <Text>Open up App.js to start working on your app!</Text>
+      <StatusBar style="auto" />
+    </View> */}
+      </NavigationContainer>
+    </Provider>
   );
 }
 
-function App(): React.JSX.Element {
-  return (
-    //conection between screens
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
-
-export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    justifyContent: 'center',
   },
 });
+
+
+
