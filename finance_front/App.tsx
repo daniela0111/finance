@@ -7,6 +7,7 @@ import EntryListScreen from './screens/EntryListScreen';
 import EntryEditScreen from './screens/EntryEditScreen';
 import EntryDeleteScreen from './screens/EntryDeleteScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Provider } from 'react-redux';
 
 export type RootStackParamList = {
   EntryList: undefined;
@@ -34,7 +35,7 @@ export default function App() {
       <NavigationContainer>
         <Tab.Navigator>
           <Tab.Screen name="Home" component={EntryStackNavigator} />
-          <Tab.Screen name="Settings" component={Categories} />
+          <Tab.Screen name="Settings" component={CategorySlice} />
       </Tab.Navigator>
     {/* <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
