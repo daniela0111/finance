@@ -12,7 +12,7 @@ import {
 import { AppDispatch, RootState } from "../store/store";
 import { decrement, increment } from "../store/counterSlice";
 import { createCategory, fetchCategories } from "../store/categorySlice";
-import { CategoryItem } from "../components/CategoryItem";
+import { CategoryItem } from "../components/CategoryItems";
 import { Category } from "../entities/category";
 import { CreateCategoryDTO } from "../entities/CreateCategoryDTO";
 
